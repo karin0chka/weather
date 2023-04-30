@@ -1,3 +1,7 @@
+a{
+  color: unset;
+}
+
 .list {
   display: flex;
   overflow-x: scroll;
@@ -52,4 +56,9 @@ body {
 h1 {
   font-weight: bold;
 }
-
+.active-temp{
+  color: rgb(48, 143, 48);
+}
+.number{
+  padding:4px;
+}

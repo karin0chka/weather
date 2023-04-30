@@ -38,7 +38,7 @@
           <section class="cities">
             <div class="row">
               <div class="col-12">
-                <em>Friday 18:24</em>
+                <em id="time-string">Friday 18:24</em>
               </div>
               <div class="col-3">London</div>
               <div class="col-3">Paris</div>
@@ -48,8 +48,9 @@
           </section>
 
           <br />
-          <form class="d-flex">
+          <form class="d-flex" id="search-form">
             <input
+              id="type-city";
               class="w-100 mx-1"
               type="text"
               placeholder="Enter your city"
@@ -57,13 +58,11 @@
             <input
               type="submit"
               value="Search"
-              onclick="button()"
               class="btn btn-success mx-1"
             />
             <input
               type="submit"
               value="Curent"
-              onclick="button()"
               class="btn btn-warning mx-1"
             />
           </form>
@@ -71,9 +70,9 @@
             <div class="col-9">
               <h1>Newport</h1>
               <h4><em>Short showers</em></h4>
-              <h1>
-                <i class="fa-solid fa-cloud-showers-heavy fa-sm"></i>8°C |°F
-              </h1>
+              <h2>
+                <i class="fa-solid fa-cloud-showers-heavy fa-sm"></i> <span id="number">8</span> <a href="#" id="celsius">°C </a>|<a href="#" id="farengate">°F</a>
+              </h2>
             </div>
             <div class="col-3">
               <p class="weatherSituation">
@@ -131,6 +130,6 @@
         </div>
       </section>
     </div>
-    <script src="src/index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

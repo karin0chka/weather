@@ -1,38 +1,57 @@
-let weather = {
-    paris: {
-      temp: 19.7,
-      humidity: 80
-    },
-    tokyo: {
-      temp: 17.3,
-      humidity: 50
-    },
-    lisbon: {
-      temp: 30.2,
-      humidity: 20
-    },
-    "san francisco": {
-      temp: 20.9,
-      humidity: 100
-    },
-    oslo: {
-      temp: -5,
-      humidity: 20
-    }
-  };
-  
-  // write your code here
-  
-function button() {
-  let cityName = prompt("Enter a city", "City name").trim().toLowerCase();
-  const result = weather[cityName]
-  if (result) {
-    alert(
-      `It is currently ${result.temp}°C in ${cityName} with a humidity of ${result.humidity}`
-    );
-  } else {
-    alert(
-      "Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+sydney"
-    );
+// Feature #1
+let currentTime = document.querySelector("#time-string");
+let now = new Date();
+
+let hours = now.getHours();
+let minutes = now.getMinutes();
+
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[now.getDay()];
+
+currentTime.innerHTML = `${day} ${hours}:${minutes}`;
+
+// Feature#2
+function searchForCity(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#type-city");
+
+  let cityName = document.querySelector("h1");
+  if (searchInput.value) {
+    cityName.innerHTML = `${searchInput.value}`;
   }
 }
+
+let cityForm = document.querySelector("#search-form");
+cityForm.addEventListener("submit", searchForCity);
+
+// Feature#3
+let celsiusType = document.querySelector("#celsius");
+let farengateType = document.querySelector("#farengate");
+function handlTemperature(temp, type) {
+  let temperature = document.querySelector("#number");
+  if (type === "celsius") {
+    temperature.innerHTML = `8`;
+    celsiusType.className = "active-temp";
+    farengateType.className = "";
+  } else {
+    temperature.innerHTML = `55`;
+    farengateType.className = "active-temp";
+    celsiusType.className = "";
+  }
+}
+
+celsiusType.addEventListener("click",function(){
+handlTemperature(8,"celsius");
+});
+
+farengateType.addEventListener("click",function(){
+  handlTemperature(55,"farengate");
+});
