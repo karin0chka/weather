@@ -2,8 +2,8 @@
 let currentTime = document.querySelector("#time-string");
 let now = new Date();
 
-let hours = now.getHours();
-let minutes = now.getMinutes();
+let hours = now.getHours() > 9 ? now.getHours() : "0" + now.getHours();
+let minutes = now.getMinutes() > 9 ? now.getMinutes() : "0" + now.getMinutes();
 
 let days = [
   "Sunday",
@@ -48,10 +48,10 @@ function handlTemperature(temp, type) {
   }
 }
 
-celsiusType.addEventListener("click",function(){
-handlTemperature(8,"celsius");
+celsiusType.addEventListener("click", function () {
+  handlTemperature(8, "celsius");
 });
 
-farengateType.addEventListener("click",function(){
-  handlTemperature(55,"farengate");
+farengateType.addEventListener("click", function () {
+  handlTemperature(55, "farengate");
 });
